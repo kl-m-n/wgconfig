@@ -10,7 +10,7 @@ This tool does NOT:
 - automatically manage network interfaces of your host server
 - manage firewall configuration
 
-Keep in mind that this tool is a side-project so updates are less frequent.
+Purpose of this tool is to enable repeatable process of configuring Wireguard which can be further automated.
 
 ## Requirements
 This program will run on any system that meets the following requirements:
@@ -38,19 +38,23 @@ vi /etc/wgconfig/config/config.ini
 
 ## Usage examples
 
-Creating a new profile
+#### Create a new profile
+This command will create a new profile structure in: <wireguard_install_folder>/profiles/<profile_name>
 ```
 wgconfig --create profile --name vpn-clients --subnet "10.1.0.0/15" --port 51820
 ```
 
-
-Creating a new group
+#### Create a new group
+This command will create a new group configuration in: <wireguard_install_folder>/profiles/<profile_name>/groups/<group_name>.conf
 ```
 wgconfig --create group --name admins --profile vpn-clients --subnet "10.1.0.0/24"
 ```
 
 
-Creating a new peer (user)
+#### Create a new peer (user)
+This command will create a new peer configuration in: <wireguard_install_folder>/profiles/<profile_name>/peers/<peer_name>.conf, .private, .public
 ```
 wgconfig --create peer --name username --group admins --profile vpn-clients --networks "10.1.1.0/24, 10.1.2.0/24" --endpoint vpn.endpoint.com:51820
 ```
+
+You can then distribute '<peer_name>.conf' files to clients.
