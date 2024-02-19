@@ -12,6 +12,12 @@ This tool does NOT:
 
 Keep in mind that this tool is a side-project so updates are less frequent.
 
+## Requirements
+This program will run on any system that meets the following requirements:
+- Python 3.6 or higher
+- Wireguard installed
+
+
 ## Installation
 1. Clone repositiry to your server
 ```
@@ -24,6 +30,10 @@ ln -s /etc/wgconfig/main.py /usr/local/bin/wgconfig
 3. Set Wireguard permissions if you haven't already
 ```
 umask 077 /etc/wireguard
+```
+4. Update config.ini with your Wireguard installation folder
+```
+vi /etc/wgconfig/config/config.ini
 ```
 
 ## Usage examples
