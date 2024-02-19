@@ -2,7 +2,7 @@
 Wireguard Configuration Tool
 
 ## Installation
-1. Clone reposotiry to your server
+1. Clone repositiry to your server
 git clone https://github.com/kl-m-n/wgconfig.git /etc/wgconfig
 
 2. Make tools accessible via wgconfig command
