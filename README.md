@@ -1,16 +1,19 @@
 # wgconfig
 Wireguard Configuration Tool
 
-This is a simple CLI-based administration tool to manage Wireguard profiles. It enables:
-- group-based peers
+This is a simple CLI-based administration tool to manage Wireguard configurations. Purpose of this tool is to enable a repeatable configuration process which can be further automated.
+
+ This tool does:
 - automatic IP assignment
-- automatic peer configuration
+- CLI-based configuration instead of manual file management
+- generate client configurations
+- group-based peer deployment
 
 This tool does NOT:
 - automatically manage network interfaces of your host server
 - manage firewall configuration
 
-Purpose of this tool is to enable repeatable process of configuring Wireguard which can be further automated.
+When you update Wireguard configuration using 'wgconfig' you still need to apply the new configuration to the appropriate system network manager and network interfaces. This tool only creates file configurations for you.
 
 ## Requirements
 This program will run on any system that meets the following requirements:
