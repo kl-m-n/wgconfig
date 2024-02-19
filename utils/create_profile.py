@@ -47,7 +47,7 @@ def create_profile(name, subnet, port):
 	# Create the configuration file
 	with open(directory + "/" + name + ".conf", "w") as config:
 		config.write("[Interface]\n")
-		config.write("# Subnet: " + subnet + "\n")
+		config.write("# Subnet = " + subnet + "\n")
 		config.write("Address = " + server_ip + "/32\n")
 		config.write("ListenPort = " + str(port) + "\n")
 		with open(directory + "/" + name + ".private", "r") as key_file:
