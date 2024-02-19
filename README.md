@@ -1,0 +1,2 @@
+# wgconfig
+Wireguard Configuration Tool
