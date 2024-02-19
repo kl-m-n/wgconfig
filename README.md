@@ -22,17 +22,19 @@ git clone https://github.com/kl-m-n/wgconfig.git /etc/wgconfig
 ln -s /etc/wgconfig/main.py /usr/local/bin/wgconfig
 ```
 
-## Usage
+## Usage examples
 
 Creating a new profile
 ```
 wgconfig --create profile --name vpn-clients --subnet "10.1.0.0/15" --port 51820
 ```
 
+
 Creating a new group
 ```
 wgconfig --create group --name admins --profile vpn-clients --subnet "10.1.0.0/24"
 ```
+
 
 Creating a new peer (user)
 ```
