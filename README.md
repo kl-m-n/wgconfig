@@ -13,7 +13,7 @@ This tool does NOT:
 - automatically manage network interfaces of your host server
 - manage firewall configuration
 
-When you update Wireguard configuration using 'wgconfig' you still need to apply the new configuration to the appropriate system network manager and network interfaces. This tool only creates file configurations for you.
+When you update Wireguard configuration using 'wgconfig' you still need to apply the new configuration to the appropriate system network manager and network interfaces. This tool only creates the necessary file configurations for you.
 
 ## Requirements
 This program will run on any system that meets the following requirements:
