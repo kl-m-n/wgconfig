@@ -21,6 +21,10 @@ git clone https://github.com/kl-m-n/wgconfig.git /etc/wgconfig
 ```
 ln -s /etc/wgconfig/main.py /usr/local/bin/wgconfig
 ```
+3. Set Wireguard permissions if you haven't already
+```
+umask 077 /etc/wireguard
+```
 
 ## Usage examples
 
