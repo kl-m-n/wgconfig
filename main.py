@@ -5,17 +5,21 @@ import utils
 
 
 def main():
-	parser = argparse.ArgumentParser(description="Wireguard Configuration Tool")
+	parser = argparse.ArgumentParser(
+		description="Wireguard Configuration Tool",
+		epilog='For more information, visit github at https://github.com/kl-m-n/wgconfig.',
+    	usage='%(prog)s [options]'
+	)
 
 	# Create new object
-	parser.add_argument("-c", "--create", help="Specify objet type (profile, peer)")
-	parser.add_argument("-n", "--name", help="Object name")
-	parser.add_argument("-s", "--subnet", help="Subnet (e.g. 192.168.0.0/24)")
-	parser.add_argument("-P", "--port", help="Port (e.g. 51820)")
-	parser.add_argument("-g", "--group", help="Group name")
-	parser.add_argument("-p", "--profile", help="Profile name")
-	parser.add_argument("-N", "--networks", help='Allowed networks (e.g. "192.168.0.0/24, 172.16.0.0/16")')
-	parser.add_argument("-e", "--endpoint", help="Endpoint (e.g. vpn.example.com:51820)")
+	parser.add_argument("-c", "--create", help="Specify objet type to one of available choices.", choices=["profile", "peer", "group"])
+	parser.add_argument("-n", "--name", help="Name your object. Use dash or underscrore instead of spaces")
+	parser.add_argument("-s", "--subnet", help='Provide a valid subnet closed in brackets (eg. "192.168.0.0/24").')
+	parser.add_argument("-P", "--port", help="Port (e.g. 51820)", type=int)
+	parser.add_argument("-g", "--group", help="Name your group. Use dash or underscrore instead of spaces.")
+	parser.add_argument("-p", "--profile", help="Name your profile. Use dash or underscrore instead of spaces.")
+	parser.add_argument("-N", "--networks", help='Specify allowed networks to pass through VPN (e.g. "192.168.0.0/24, 172.16.0.0/16").')
+	parser.add_argument("-e", "--endpoint", help="Specify VPN endpoint (e.g. vpn.example.com:51820).")
 
 	args = parser.parse_args()
 
