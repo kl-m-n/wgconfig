@@ -61,7 +61,7 @@ def create_peer(name, networks, endpoint, profile, group):
 
 	# Add the peer to the server's configuration file
 	with open(profile_configuration, "a") as server_config_file:
-		server_config_file.write("# Name =  " + name + "\n")
+		server_config_file.write("# Name = " + name + "\n")
 		server_config_file.write("[Peer]\n")
 		server_config_file.write("PublicKey = " + open(peer_directory + "/" + name + ".public", "r").read())
 		server_config_file.write("AllowedIPs = " + peer_ip + "/32\n")
