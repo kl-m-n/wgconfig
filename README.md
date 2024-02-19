@@ -24,15 +24,17 @@ ln -s /etc/wgconfig/main.py /usr/local/bin/wgconfig
 
 ## Usage
 
-### Creating a new profile
+Creating a new profile
 ```
 wgconfig --create profile --name vpn-clients --subnet "10.1.0.0/15" --port 51820
 ```
 
-### Creating a new group
+Creating a new group
 ```
 wgconfig --create group --name admins --profile vpn-clients --subnet "10.1.0.0/24"
 ```
 
-### Creating a new peer (user)
+Creating a new peer (user)
+```
 wgconfig --create peer --name username --group admins --profile vpn-clients --networks "10.1.1.0/24, 10.1.2.0/24" --endpoint vpn.endpoint.com:51820
+```
