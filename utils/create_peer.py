@@ -6,7 +6,7 @@ from utils import wg_install_path
 from utils.get_next_available_ip import get_next_available_ip
 
 
-def create_peer(name, networks, endpoint, profile, group):
+def create_peer(name, networks, endpoint, profile, group, dns):
 	# Setup directories
 	profile_directory = wg_install_path + "/profiles/" + profile
 	peer_directory = profile_directory + "/peers"
@@ -45,6 +45,7 @@ def create_peer(name, networks, endpoint, profile, group):
 		config.write("[Interface]\n")
 		config.write("PrivateKey = " + open(peer_directory + "/" + name + ".private", "r").read())
 		config.write("Address = " + peer_ip + "/32\n")
+		config.write("DNS = " + dns + "\n")
 		config.write("\n")
 		config.write("[Peer]\n")
 		config.write("PublicKey = " + open(profile_directory + "/" + profile + ".public", "r").read())

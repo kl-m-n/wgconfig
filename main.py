@@ -20,6 +20,7 @@ def main():
 	parser.add_argument("-p", "--profile", help="Name your profile. Use dash or underscrore instead of spaces.")
 	parser.add_argument("-N", "--networks", help='Specify allowed networks to pass through VPN (e.g. "192.168.0.0/24, 172.16.0.0/16").')
 	parser.add_argument("-e", "--endpoint", help="Specify VPN endpoint (e.g. vpn.example.com:51820).")
+	parser.add_argument("-d", "--dns", help="Specify DNS servers (e.g. 1.1.1.1).")
 
 	args = parser.parse_args()
 
@@ -69,8 +70,11 @@ def main():
 		if not args.group:
 			print("You must specify a group")
 			exit(1)
+		if not args.dns:
+			print("You must specify a DNS server")
+			exit(1)
 
-		utils.create_peer(args.name, args.networks, args.endpoint, args.profile, args.group)
+		utils.create_peer(args.name, args.networks, args.endpoint, args.profile, args.group, args.dns)
 
 if __name__ == "__main__":
 	main()
