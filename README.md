@@ -57,7 +57,7 @@ wgconfig --create group --name admins --profile vpn-clients --subnet "10.1.0.0/2
 #### Create a new peer (user)
 This command will create a new peer configuration in: <wireguard_install_folder>/profiles/<profile_name>/peers/<peer_name>.conf, .private, .public
 ```
-wgconfig --create peer --name username --group admins --profile vpn-clients --networks "10.1.1.0/24, 10.1.2.0/24" --endpoint vpn.endpoint.com:51820
+wgconfig --create peer --name username --group admins --profile vpn-clients --networks "10.1.1.0/24, 10.1.2.0/24" --endpoint vpn.endpoint.com:51820 --dns "1.1.1.1, 8.8.8.8"
 ```
 
 You can then distribute '<peer_name>.conf' files to clients.
