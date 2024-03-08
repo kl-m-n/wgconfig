@@ -26,3 +26,12 @@ console.setFormatter(formatter)
 
 # Wireguard configuration
 wg_install_path = config.get('Wireguard', 'InstallPath')
+wg_persistent_peers = config.get('Wireguard', 'PersistentPeers')
+
+# Mail configuration
+mail_status = config.get('Mail', 'Mail')
+mail_server = config.get('Mail', 'Server')
+mail_port = config.get('Mail', 'Port')
+mail_username = config.get('Mail', 'Username')
+mail_password = config.get('Mail', 'Password')
+mail_from = config.get('Mail', 'From')

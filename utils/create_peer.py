@@ -1,9 +1,9 @@
 import os
 import ipaddress
 
-import utils
-from utils import wg_install_path
+from utils import wg_install_path, send_mail
 from utils.get_next_available_ip import get_next_available_ip
+import vars
 
 
 def create_peer(name, networks, endpoint, profile, group, dns):
@@ -67,3 +67,22 @@ def create_peer(name, networks, endpoint, profile, group, dns):
 		server_config_file.write("PublicKey = " + open(peer_directory + "/" + name + ".public", "r").read())
 		server_config_file.write("AllowedIPs = " + peer_ip + "/32\n")
 		server_config_file.write("\n")
+
+	print("Peer " + name + " has been created successfully")
+
+	if vars.mail_status == "true":
+		subject = "New Wireguard VPN profile has been created for you"
+		body = ""
+		attachment = peer_configuration
+		to = ""
+		# Send mail with attachment
+		try:
+			send_mail(to, subject, body, attachment)
+		except Exception as e:
+			print("Error sending mail: " + str(e))
+			exit(1)
+
+	# If persistent peers is disabled, delete the peer configuration file
+	if vars.wg_persistent_peers == "false":
+		os.remove(peer_configuration)
+		print("Peer configuration file has been deleted")
